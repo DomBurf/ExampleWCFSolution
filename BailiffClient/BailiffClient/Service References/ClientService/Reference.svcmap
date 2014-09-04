@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="442d3a9d-2b50-4bb6-90b3-cfc6b9a1f09f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:9000/ClientServices" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ClientServices.disco" MetadataType="Disco" ID="cc53f04e-30b7-4eef-b697-ca9197d515e4" SourceId="1" SourceUrl="http://localhost:9000/ClientServices?disco" />
+    <MetadataFile FileName="ClientServices.xsd" MetadataType="Schema" ID="ca8488a6-eee3-4ff5-9ef4-dc866c8d4b8a" SourceId="1" SourceUrl="http://localhost:9000/ClientServices?xsd=xsd3" />
+    <MetadataFile FileName="ClientServices1.xsd" MetadataType="Schema" ID="a9fad1a7-a9bf-4193-ad40-bce8e4016f1d" SourceId="1" SourceUrl="http://localhost:9000/ClientServices?xsd=xsd2" />
+    <MetadataFile FileName="ClientServices2.xsd" MetadataType="Schema" ID="09e32900-bab8-414b-a047-5b8f211b7da4" SourceId="1" SourceUrl="http://localhost:9000/ClientServices?xsd=xsd1" />
+    <MetadataFile FileName="ClientServices3.xsd" MetadataType="Schema" ID="716199ee-1bbf-4960-af57-350e524ef19b" SourceId="1" SourceUrl="http://localhost:9000/ClientServices?xsd=xsd0" />
+    <MetadataFile FileName="ClientService.wsdl" MetadataType="Wsdl" ID="1f8280d7-47fe-48ae-8d06-208f320919a1" SourceId="1" SourceUrl="http://localhost:9000/ClientServices?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

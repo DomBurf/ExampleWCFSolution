@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2052c807-a5dd-4de5-82d8-8c8a0b4b98e9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8000/DebtorServices" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DebtorServices.xsd" MetadataType="Schema" ID="166908f5-b593-4edd-b76d-9a0f89eee2d1" SourceId="1" SourceUrl="http://localhost:8000/DebtorServices?xsd=xsd1" />
+    <MetadataFile FileName="DebtorServices1.xsd" MetadataType="Schema" ID="6e807977-79ab-433e-94ac-de1f76d2fefb" SourceId="1" SourceUrl="http://localhost:8000/DebtorServices?xsd=xsd0" />
+    <MetadataFile FileName="DebtorServices2.xsd" MetadataType="Schema" ID="4bf0a49a-8915-4069-b7b6-92816bf60f15" SourceId="1" SourceUrl="http://localhost:8000/DebtorServices?xsd=xsd3" />
+    <MetadataFile FileName="DebtorServices3.xsd" MetadataType="Schema" ID="7dba34af-8655-4676-96dc-82f763f5dbdf" SourceId="1" SourceUrl="http://localhost:8000/DebtorServices?xsd=xsd2" />
+    <MetadataFile FileName="DebtorService.wsdl" MetadataType="Wsdl" ID="09673a67-4c42-47b4-b38f-550522650220" SourceId="1" SourceUrl="http://localhost:8000/DebtorServices?wsdl" />
+    <MetadataFile FileName="DebtorServices.disco" MetadataType="Disco" ID="953123e1-3209-4588-8344-4ef93fd43b50" SourceId="1" SourceUrl="http://localhost:8000/DebtorServices?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
