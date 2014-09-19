@@ -31,6 +31,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Common.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -46,7 +52,6 @@
     <Compile Include="Attributes\DataFieldAttribute.cs" />
     <Compile Include="Entities\ClientEntity.cs" />
     <Compile Include="Entities\DebtorEntity.cs" />
-    <Compile Include="Enums\ErrorMessages.cs" />
     <Compile Include="Enums\FaultReasons.cs" />
     <Compile Include="Helpers\AppSettingsManager.cs" />
     <Compile Include="Helpers\LoggingManager.cs" />
@@ -60,6 +65,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Common.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

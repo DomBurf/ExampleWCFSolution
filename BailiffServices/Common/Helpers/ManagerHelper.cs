@@ -18,18 +18,10 @@ using System.Diagnostics;
 
 namespace Common.Helpers
 {
-    public class ManagerHelper
+    public static class ManagerHelper
     {
         private static LoggingManager _loggingManager;
         private static AppSettingsManager _appSettings;
-        
-        /// <summary>
-        /// Constructor marked as private to inhibit instance creation
-        /// </summary>
-        private ManagerHelper()
-        {
-            
-        }
 
         [DebuggerStepThrough]
         public static LoggingManager LoggingManager()

@@ -38,18 +38,27 @@ namespace Common.Helpers
                 //the 0 stack element is this method which can be excluded
                 if (count == 0) continue;
                 StackFrame sf = st.GetFrame(count);
-                LogMessage(string.Format("Method={0}", sf.GetMethod()));
-                LogMessage(string.Format("Filename={0}", sf.GetFileName()));
-                LogMessage(string.Format("Linenumber={0}", sf.GetFileLineNumber()));
+                LogMessage(string.Format(CultureInfo.InvariantCulture, "Method={0}", sf.GetMethod()));
+                LogMessage(string.Format(CultureInfo.InvariantCulture, "Filename={0}", sf.GetFileName()));
+                LogMessage(string.Format(CultureInfo.InvariantCulture, "Linenumber={0}", sf.GetFileLineNumber()));
             }
         }
 
         public void LogException(Exception ex)
         {
-            LogMessage(string.Format("Exception occured at {0}", DateTime.Now.ToString(CultureInfo.InvariantCulture)));
+            LogMessage(string.Format(CultureInfo.InvariantCulture, "Exception occured at {0}", DateTime.Now.ToString(CultureInfo.InvariantCulture)));
             LogMessage(System.Reflection.MethodBase.GetCurrentMethod().Name);
 
             LogError(ex);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                //dispose managed resources
+                _infoLog.Close();
+            }
         }
     }
 }

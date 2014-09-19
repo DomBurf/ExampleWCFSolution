@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.ServiceModel;
 
 using BusinessTier.Interfaces;
@@ -18,7 +19,7 @@ namespace BusinessTier.Services
     {
         public DebtorEntity GetDebtorInfo(int debtorId)
         {
-            ManagerHelper.LoggingManager().LogMessage(string.Format("{0}.{1}", GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name));
+            ManagerHelper.LoggingManager().LogMessage(string.Format(CultureInfo.InvariantCulture, "{0}.{1}", GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name));
 
             try
             {
@@ -30,7 +31,7 @@ namespace BusinessTier.Services
                 ManagerHelper.LoggingManager().LogException(ex);
 
                 throw new FaultException<UnexpectedServiceFault>(
-                    new UnexpectedServiceFault { ErrorMessage = ex.Message }, new FaultReason(FaultReasons.GetDebtorInfo));
+                    new UnexpectedServiceFault { ErrorMessage = ex.Message }, new FaultReason(string.Format(CultureInfo.InvariantCulture, "{0}", FaultReasons.GetDebtorInfo)));
             }
         }
     }

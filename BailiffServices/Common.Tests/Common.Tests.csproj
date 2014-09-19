@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettingsManagerTests.cs" />
+    <Compile Include="ClientEntityTests.cs" />
+    <Compile Include="DebtorEntityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

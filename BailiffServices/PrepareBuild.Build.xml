@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="PrepareBuild" xmlns="http://nant.sf.net/schemas/nant.xsd">
+
+  <property name="build.dir" 			      value="${directory::get-current-directory()}" />
+  <property name="target.dir" 		      value="${build.dir}.build" />
+
+  <property name="verbose"			      	value="false" overwrite="false" />
+
+  <property name="nant.onfailure" 			value="Failure"/>
+  <property name="nant.onsuccess" 			value="Success"/>
+
+  <!-- Tell Nant what the current framework version to use is -->
+  <property name="nant.settings.currentframework" value="net-4.0" />
+
+  <tstamp verbose="${verbose}">
+    <formatter property="year" pattern="yyyy" />
+  </tstamp>
+
+  <target name="PrepareBuild">
+    <echo message="Task execution started at : ${script::format-to-string(datetime::now())}" />
+
+    <delete dir="${target.dir}" 
+            if="${directory::exists(target.dir)}" 
+            failonerror="true" 
+            verbose="${verbose}" />
+
+    <copy todir="${target.dir}"
+          if="${not directory::exists(target.dir)}"
+          failonerror="true"
+          verbose="${verbose}" >
+      <fileset>
+        <include name="${build.dir}\**/*.*" />
+        <exclude name="**/*.tmp" />
+        <exclude name="*.log" />
+      </fileset>
+    </copy>
+
+    <attrib normal="true" failonerror="true" verbose="${verbose}">
+      <fileset basedir="${target.dir}">
+        <include name="**/*.*" />
+      </fileset>
+    </attrib>
+
+    <echo message="Task execution finished at : ${script::format-to-string(datetime::now())}" />
+  </target>
+
+  <target name="Failure">
+    <echo message="Task execution started at : ${script::format-to-string(datetime::now())}" />
+
+    <echo message="Build failure, please check log for details" />
+
+    <echo message="Task execution finished at : ${script::format-to-string(datetime::now())}" />
+  </target>
+
+  <target name="Success">
+    <echo message="Task execution started at : ${script::format-to-string(datetime::now())}" />
+
+    <echo message="Successful build"/>
+
+    <echo message="Task execution finished at : ${script::format-to-string(datetime::now())}" />
+  </target>
+  
+  <!-- C# utility function -->
+  <script language="C#">
+    <code><![CDATA[
+			public static string ToString(DateTime value, string format)
+			{
+				return value.ToString(format);
+			}
+			[Function("format-to-string")]
+			public static string ToString(DateTime value)
+			{
+				return ToString(value, "dd/MM/yyyy HH:mm:ss");
+			}
+		]]></code>
+  </script>
+</project>

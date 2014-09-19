@@ -1,20 +1,22 @@
 using System;
+using System.Globalization;
 using System.IO;
 using System.Xml.Linq;
 
 namespace Common.Helpers
 {
     /// <summary>
-    /// Base class for all Helper classes
+    /// Base class for all Helper classes.
+    /// Implements the IDisposable interface because it manages the dispsable field _errorlog of type TextWriter.
     /// </summary>
-    public class ManagerBase
+    public class ManagerBase : IDisposable
     {
         private TextWriter _errorLog;
         private string _tempFolder;
 
         protected void LogError(Exception ex)
         {
-            ManagerHelper.LoggingManager().LogMessage(string.Format("{0}.{1}", GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name));
+            ManagerHelper.LoggingManager().LogMessage(string.Format(CultureInfo.InvariantCulture, "{0}.{1}", GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name));
 
             if (ex == null) return;
             XElement xmlException = ErrorToXml(ex);
@@ -26,9 +28,9 @@ namespace Common.Helpers
             if (_errorLog != null) _errorLog.WriteLine(xmlException.ToString());
         }
 
-        protected XElement ErrorToXml(Exception ex)
+        private XElement ErrorToXml(Exception ex)
         {
-            ManagerHelper.LoggingManager().LogMessage(string.Format("{0}.{1}", GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name));
+            ManagerHelper.LoggingManager().LogMessage(string.Format(CultureInfo.InvariantCulture, "{0}.{1}", GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name));
             
             XElement xmlException = new XElement("ERROR",
                                              new XElement("MESSAGE", ex.Message),
@@ -54,6 +56,21 @@ namespace Common.Helpers
                 _tempFolder = Path.GetTempPath();
             }
             return _tempFolder;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                //dispose managed resources
+                _errorLog.Close();
+            }
         }
     }
 }

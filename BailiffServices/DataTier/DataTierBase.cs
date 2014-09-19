@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Globalization;
 
 using Common.Helpers;
 
@@ -17,10 +18,10 @@ namespace DataTier
 
         public string GetConnectionStringsValue(string key)
         {
-            ManagerHelper.LoggingManager().LogMessage(string.Format("{0}.{1}", GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name));
-            ManagerHelper.LoggingManager().LogMessage(string.Format("Config key={0}", key));
+            ManagerHelper.LoggingManager().LogMessage(string.Format(CultureInfo.InvariantCulture, "{0}.{1}", GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name));
+            ManagerHelper.LoggingManager().LogMessage(string.Format(CultureInfo.InvariantCulture, "Config key={0}", key));
             string configFile = AppDomain.CurrentDomain.SetupInformation.ConfigurationFile;
-            ManagerHelper.LoggingManager().LogMessage(string.Format("Config file={0}", configFile));
+            ManagerHelper.LoggingManager().LogMessage(string.Format(CultureInfo.InvariantCulture, "Config file={0}", configFile));
 
             string result = string.Empty;
             if (!string.IsNullOrEmpty(key))
@@ -31,7 +32,7 @@ namespace DataTier
                     result = connSettings.ConnectionString;
                 }
             }
-            ManagerHelper.LoggingManager().LogMessage(string.Format("ConnectionString={0}", result));
+            ManagerHelper.LoggingManager().LogMessage(string.Format(CultureInfo.InvariantCulture, "ConnectionString={0}", result));
             return result;
         }
     }

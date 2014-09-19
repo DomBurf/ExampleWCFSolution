@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 using Common.Entities;
 using Common.Helpers;
@@ -14,7 +15,7 @@ namespace BusinessTier.Helpers
     {
         public DebtorEntity GetDebtorInfo(int debtorId)
         {
-            ManagerHelper.LoggingManager().LogMessage(string.Format("{0}.{1}", GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name));
+            ManagerHelper.LoggingManager().LogMessage(string.Format(CultureInfo.InvariantCulture, "{0}.{1}", GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name));
 
             try
             {
@@ -31,7 +32,7 @@ namespace BusinessTier.Helpers
 
         public ClientEntity GetClientInfo(string clientid)
         {
-            ManagerHelper.LoggingManager().LogMessage(string.Format("{0}.{1}", GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name));
+            ManagerHelper.LoggingManager().LogMessage(string.Format(CultureInfo.InvariantCulture, "{0}.{1}", GetType().Name, System.Reflection.MethodBase.GetCurrentMethod().Name));
 
             try
             {

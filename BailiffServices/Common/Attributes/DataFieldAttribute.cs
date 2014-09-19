@@ -7,7 +7,7 @@ namespace Common.Attributes
     /// </summary>
     
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)] 
-    public class DataFieldAttribute : Attribute
+    public sealed class DataFieldAttribute : Attribute
     {
         private readonly string _name;
 

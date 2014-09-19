@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Globalization;
 using System.Reflection;
 
 using Common.Attributes;
@@ -16,7 +17,7 @@ namespace Common
     /// <example>See the class definition for DebtorEntity and the implementation for DebtorData.GetDebtorInfo() as an example.</example>
     public static class ReflectPropertyInfo
     {
-        public static TEntity ReflectType<TEntity>(IDataReader dr) where TEntity : class, new()
+        public static TEntity ReflectType<TEntity>(IDataRecord dr) where TEntity : class, new()
         {
             TEntity instanceToPopulate = new TEntity();
 
@@ -37,7 +38,7 @@ namespace Common
 
                     if (dbValue != null)
                     {
-                        pi.SetValue(instanceToPopulate, Convert.ChangeType(dbValue, pi.PropertyType), null);
+                        pi.SetValue(instanceToPopulate, Convert.ChangeType(dbValue, pi.PropertyType, CultureInfo.InvariantCulture), null);
                     }
                 }
             }

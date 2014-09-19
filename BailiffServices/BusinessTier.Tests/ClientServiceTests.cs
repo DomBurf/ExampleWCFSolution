@@ -1,4 +1,5 @@
-﻿using BusinessTier.Services;
+﻿using System;
+using BusinessTier.Services;
 
 using Common.Entities;
 
@@ -35,6 +36,14 @@ namespace BusinessTier.Tests
             Assert.AreEqual("REGAL ESTATES LTD", result.Name.Trim(), "Invalid value returned for Name");
             Assert.AreEqual("IM1 1AT", result.Postcode.Trim(), "Invalid value returned for Postcode");
             Assert.AreEqual("1907", result.Refno.Trim(), "Invalid value returned for Refno");
+        }
+
+        [Test]
+        [ExpectedException(typeof(System.ServiceModel.FaultException<Common.UnexpectedServiceFault>))]
+        public void GetClientInfoExceptionTest()
+        {
+            ClientService data = new ClientService();
+            data.GetClientInfo(null);
         }
     }
 }
